@@ -4,7 +4,7 @@ import profile2 from '../../Assets/profile-images/Ellipse -1.png';
 import profile3 from '../../Assets/profile-images/Ellipse -8.png';
 import profile4 from '../../Assets/profile-images/Ellipse -7.png';
 import logo from '../../Assets/images/logo.png'
-import './PayrollForm.css';
+import './Adduser.css';
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
