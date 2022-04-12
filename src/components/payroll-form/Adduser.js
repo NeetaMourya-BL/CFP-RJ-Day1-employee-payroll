@@ -53,7 +53,6 @@ const AddUser = () => {
         event.preventDefault();
         await axios.post("http://localhost:3001/employee", user);
         history.push("/");
-        console.log("Data added successfully")
     };
     const changeValue = (event) => {
         setUser({ ...user, [event.target.name]: event.target.value })
