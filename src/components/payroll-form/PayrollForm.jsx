@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import profile1 from '../../Assets/profile-images/Ellipse -3.png';
 import profile2 from '../../Assets/profile-images/Ellipse -1.png';
-import profile3 from '../../Assets/profile-images/Ellipse -8.png';
+import profile1 from '../../Assets/profile-images/Ellipse -3.png';
 import profile4 from '../../Assets/profile-images/Ellipse -7.png';
+import profile3 from '../../Assets/profile-images/Ellipse -8.png';
 import logo from '../../Assets/images/logo.png'
 import './PayrollForm.css';
 import axios from 'axios'
@@ -14,10 +14,10 @@ const PayrollForm = () => {
     const [employee, setUser] = useState({
         name: '',
         profileArray: [
-            { url: '../../Assets/profile-images/Ellipse -3.png' },
             { url: '../../Assets/profile-images/Ellipse -1.png' },
-            { url: '../../Assets/profile-images/Ellipse -8.png' },
-            { url: '../../Assets/profile-images/Ellipse -7.png' }
+            { url: '../../Assets/profile-images/Ellipse -3.png' },
+            { url: '../../Assets/profile-images/Ellipse -7.png' },
+            { url: '../../Assets/profile-images/Ellipse -8.png' }
 
         ],
         allDepartment: [
@@ -101,19 +101,19 @@ const PayrollForm = () => {
                         <div className="profile-radio-content">
                             <label >
                                 <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -1.png'} value="../../Assets/profile-images/Ellipse -1.png" onChange={changeValue} />
-                                <img className="profile" src={profile2} alt="profile" />
-                            </label>
-                            <label >
-                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../Assets/profile-images/Ellipse -3.png" onChange={changeValue} />
                                 <img className="profile" src={profile1} alt="profile" />
                             </label>
                             <label >
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../Assets/profile-images/Ellipse -3.png" onChange={changeValue} />
+                                <img className="profile" src={profile2} alt="profile" />
+                            </label>
+                            <label >
                                 <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -7.png'} value="../../Assets/profile-images/Ellipse -7.png" onChange={changeValue} />
-                                <img className="profile" src={profile4} alt="profile" />
+                                <img className="profile" src={profile3} alt="profile" />
                             </label>
                             <label >
                                 <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -8.png'} value="../../Assets/profile-images/Ellipse -8.png" onChange={changeValue} />
-                                <img className="profile" src={profile3} alt="profile" />
+                                <img className="profile" src={profile4} alt="profile" />
                             </label>
 
                         </div>
@@ -211,7 +211,7 @@ const PayrollForm = () => {
                                 <option value="2016">2016</option>
                             </select>
                         </div>
-                        <error className="error">{employee.error.startDate}</error>
+                        {/* <error className="error">{employee.error.startDate}</error> */}
                     </div>
 
                     <div className="row-content">

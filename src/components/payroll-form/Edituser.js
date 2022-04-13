@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import profile1 from '../../Assets/profile-images/Ellipse -3.png';
-import profile2 from '../../Assets/profile-images/Ellipse -1.png';
-import profile3 from '../../Assets/profile-images/Ellipse -8.png';
-import profile4 from '../../Assets/profile-images/Ellipse -7.png';
+import profile1 from '../../Assets/profile-images/Ellipse -1.png';
+import profile2 from '../../Assets/profile-images/Ellipse -3.png';
+import profile3 from '../../Assets/profile-images/Ellipse -7.png';
+import profile4 from '../../Assets/profile-images/Ellipse -8.png';
 import logo from '../../Assets/images/logo.png'
 import './PayrollForm.css';
 import axios from 'axios'
@@ -16,10 +16,10 @@ const EditUser = () => {
     const [employee, setUser] = useState({
         name: '',
         profileArray: [
-            { url: '../../Assets/profile-images/Ellipse -3.png' },
             { url: '../../Assets/profile-images/Ellipse -1.png' },
-            { url: '../../Assets/profile-images/Ellipse -8.png' },
-            { url: '../../Assets/profile-images/Ellipse -7.png' }
+            { url: '../../Assets/profile-images/Ellipse -3.png' },
+            { url: '../../Assets/profile-images/Ellipse -7.png' },
+            { url: '../../Assets/profile-images/Ellipse -8.png' }
 
         ],
         allDepartment: [
@@ -102,19 +102,19 @@ const EditUser = () => {
                         <div className="profile-radio-content">
                             <label >
                                 <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -1.png'} value="../../assets/profile-images/Ellipse -1.png" onChange={changeValue} />
-                                <img className="profile" src={profile2} alt="profile" />
-                            </label>
-                            <label >
-                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../assets/profile-images/Ellipse -3.png" onChange={changeValue} />
                                 <img className="profile" src={profile1} alt="profile" />
                             </label>
                             <label >
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../assets/profile-images/Ellipse -3.png" onChange={changeValue} />
+                                <img className="profile" src={profile2} alt="profile" />
+                            </label>
+                            <label >
                                 <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -7.png'} value="../../assets/profile-images/Ellipse -7.png" onChange={changeValue} />
-                                <img className="profile" src={profile4} alt="profile" />
+                                <img className="profile" src={profile3} alt="profile" />
                             </label>
                             <label >
                                 <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -8.png'} value="../../assets/profile-images/Ellipse -8.png" onChange={changeValue} />
-                                <img className="profile" src={profile3} alt="profile" />
+                                <img className="profile" src={profile4} alt="profile" />
                             </label>
 
                         </div>
@@ -130,9 +130,8 @@ const EditUser = () => {
                         </div>
                         {/* <error className="error">{employee.error.gender}</error> */}
                     </div>
-                    <div className="row-content">
+                    < div className="row-content">
                         <label className="label text" htmlFor="departments">Department</label>
-                        <div>
                             {employee.allDepartment.map(item => (
                                 <span key={item}>
                                     <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item}
@@ -140,8 +139,6 @@ const EditUser = () => {
                                     <label className="text" htmlFor={item}>{item}</label>
                                 </span>
                             ))}
-
-                        </div>
                         {/* <error className="error">{employee.error.department}</error> */}
                     </div>
 

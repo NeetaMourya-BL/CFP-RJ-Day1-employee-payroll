@@ -6,10 +6,10 @@ const EmployeeService = () => {
   const [employee, setUser] = useState({
     name: '',
     profileArray: [
-      { url: '../../Assets/profile-images/Ellipse -3.png' },
       { url: '../../Assets/profile-images/Ellipse -1.png' },
-      { url: '../../Assets/profile-images/Ellipse -8.png' },
-      { url: '../../Assets/profile-images/Ellipse -7.png' }
+      { url: '../../Assets/profile-images/Ellipse -3.png' },
+      { url: '../../Assets/profile-images/Ellipse -7.png' },
+      { url: '../../Assets/profile-images/Ellipse -8.png' }
 
     ],
     allDepartment: [
@@ -46,7 +46,7 @@ const EmployeeService = () => {
   return (
     <div className="container py-4">
       <Link className="btn btn-primary" to="/">
-        back to Home
+        Back to Home
       </Link>
       <h1 className="display-4">User Id: {id}</h1>
       <hr />
@@ -56,7 +56,7 @@ const EmployeeService = () => {
         <li className="list-group-item">gender: {employee.gender}</li>
         <li className="list-group-item">department: {employee.department}</li>
         <li className="list-group-item">salary: {employee.salary}</li>
-        <li className="list-group-item">startdate: {employee.startDate}</li>
+        <li className="list-group-item">startDate: {employee.startDate}</li>
       </ul>
     </div>
   );

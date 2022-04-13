@@ -16,7 +16,7 @@ const Home = () => {
   // let employeeList = JSON.parse(localStorage.getItem('EmployeeList'));
   // console.log(employeeList);
 
-  const [users, setUser] = useState([]);
+  const [employees, setUser] = useState([]);
 
   useEffect(() => {
     loadUsers();
@@ -44,16 +44,16 @@ const Home = () => {
         </div>
       </header>
       <div className="form-content">
-      <span className="emp-text emp-payroll">Employee Details</span>
+        <span className="emp-text emp-payroll">Employee Details</span>
         <img className="search" src={search} alt="search" />
-        <button className="add-button">
-          <Link className="text-content" to="/payroll-form/add">+Add User</Link>
-        </button>
+        <Link className="add-button" to="/payroll-form/add">+Add User</Link>
       </div>
       <div>
         <table class="table border shadow">
           <thead class="thead-dark">
             <tr>
+
+              <th scope="col">Id</th>
               <th scope="col">Profile Image</th>
               <th scope="col">Name</th>
               <th scope="col">Gender</th>
@@ -65,19 +65,19 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((employee, index) => (
+            {employees.map((employee, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
                 <td><img className="profile"
                   src={
                     employee.profilePic ===
-                      "../../Assets/profile-images/Ellipse -3.png"
+                      "../../Assets/profile-images/Ellipse -1.png"
                       ? profile1
                       : employee.profilePic ===
-                        "../../Assets/profile-images/Ellipse -1.png"
+                        "../../Assets/profile-images/Ellipse -3.png"
                         ? profile2
                         : employee.profilePic ===
-                          "../../Assets/profile-images/Ellipse -4.png"
+                          "../../Assets/profile-images/Ellipse -7.png"
                           ? profile3
                           : profile4
                   }
@@ -92,14 +92,14 @@ const Home = () => {
                   </div>
                 ))}</td>
                 <td>{employee.salary}</td>
-                <td>{employee.startdate}</td>
+                <td>{employee.startDate}</td>
                 <td>
-                  <Link class="btn btn-primary mr-2" to={`/employee/${employee.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/payroll-form/${employees.id}`}>
                     View
                   </Link>
 
                   <img src={deleteIcon} alt="delete" onClick={() => deleteUserData(employee.id)} />
-                  <Link to={`/employee/edit/${employee.id}`}>
+                  <Link to={`/payroll-form/edit/${employee.id}`}>
                     <img src={editIcon} alt="edit" />
                   </Link>
 
