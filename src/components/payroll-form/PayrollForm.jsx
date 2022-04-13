@@ -4,13 +4,14 @@ import profile2 from '../../Assets/profile-images/Ellipse -1.png';
 import profile3 from '../../Assets/profile-images/Ellipse -8.png';
 import profile4 from '../../Assets/profile-images/Ellipse -7.png';
 import logo from '../../Assets/images/logo.png'
-import './Adduser.css';
+import './PayrollForm.css';
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
-const AddUser = () => {
+
+const PayrollForm = () => {
     let history = useHistory();
-    const [user, setUser] = useState({
+    const [employee, setUser] = useState({
         name: '',
         profileArray: [
             { url: '../../Assets/profile-images/Ellipse -3.png' },
@@ -45,36 +46,37 @@ const AddUser = () => {
 
 
     const onInputChange = async event => {
-        setUser({ ...user, [event.target.name]: event.target.value });
+        setUser({ ...employee, [event.target.name]: event.target.value });
     };
 
     const onSubmit = async event => {
-        console.log(user);
+        console.log(employee);
         event.preventDefault();
-        await axios.post("http://localhost:3001/employee", user);
+        await axios.post("http://localhost:3001/employee", employee);
         history.push("/");
     };
     const changeValue = (event) => {
-        setUser({ ...user, [event.target.name]: event.target.value })
+        setUser({ ...employee, [event.target.name]: event.target.value })
         console.log(event.target.value)
     }
 
     const onCheckChange = (name) => {
-        let index = user.departMentValue.indexOf(name);
+        let index = employee.departMentValue.indexOf(name);
 
-        let checkArray = [...user.departMentValue]
+        let checkArray = [...employee.departMentValue]
         if (index > -1)
             checkArray.splice(index, 1)
         else
             checkArray.push(name);
-        setUser({ ...user, departMentValue: checkArray });
+        setUser({ ...employee, departMentValue: checkArray });
     }
     const getChecked = (name) => {
-        return user.departMentValue && user.departMentValue.includes(name);
+        return employee.departMentValue && employee.departMentValue.includes(name);
     }
     return (
         <div className="payroll-main">
             <header className='header-content header'>
+
                 <div className="logo-content">
                     <img src={logo} alt="" />
                     <div>
@@ -82,73 +84,75 @@ const AddUser = () => {
                         <span className="emp-text emp-payroll">PAYROLL</span>
                     </div>
                 </div>
+                <Link className="nav-link" exact to="/">
+                    Dashboard
+                </Link>
             </header>
             <div className="form-content">
                 <form className="form-head" action="#" onSubmit={onSubmit}>
                     <div className="form-head">Employee Payroll form</div>
                     <div className="row-content">
                         <label className="label text" htmlFor="name">Name</label>
-                        <input className="input" type="text" id="name" name="name" value={user.name} onChange={changeValue} placeholder="Your name.." />
-                        {/* <error className="error">{user.error.name}</error> */}
+                        <input className="input" type="text" id="name" name="name" value={employee.name} onChange={changeValue} placeholder="Your name.." />
+                        {/* <error className="error">{employee.error.name}</error> */}
                     </div>
                     <div className="row-content">
                         <label className="label text" htmlFor="profilePic">Profile image</label>
                         <div className="profile-radio-content">
                             <label >
-                                <input type="radio" name="profilePic" checked={user.profilePic === '../../Assets/profile-images/Ellipse -1.png'} value="../../Assets/profile-images/Ellipse -1.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -1.png'} value="../../Assets/profile-images/Ellipse -1.png" onChange={changeValue} />
                                 <img className="profile" src={profile2} alt="profile" />
                             </label>
                             <label >
-                                <input type="radio" name="profilePic" checked={user.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../Assets/profile-images/Ellipse -3.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../Assets/profile-images/Ellipse -3.png" onChange={changeValue} />
                                 <img className="profile" src={profile1} alt="profile" />
                             </label>
                             <label >
-                                <input type="radio" name="profilePic" checked={user.profilePic === '../../Assets/profile-images/Ellipse -7.png'} value="../../Assets/profile-images/Ellipse -7.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -7.png'} value="../../Assets/profile-images/Ellipse -7.png" onChange={changeValue} />
                                 <img className="profile" src={profile4} alt="profile" />
                             </label>
                             <label >
-                                <input type="radio" name="profilePic" checked={user.profilePic === '../../Assets/profile-images/Ellipse -8.png'} value="../../Assets/profile-images/Ellipse -8.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -8.png'} value="../../Assets/profile-images/Ellipse -8.png" onChange={changeValue} />
                                 <img className="profile" src={profile3} alt="profile" />
                             </label>
 
                         </div>
-                        {/* <error className="error">{user.error.profilePic}</error> */}
+                        {/* <error className="error">{employee.error.profilePic}</error> */}
                     </div>
                     <div className="row-content">
                         <label className="label text" htmlFor="gender">Gender</label>
                         <div>
-                            <input type="radio" id="male" checked={user.gender === 'male'} onChange={changeValue} name="gender" value="male" />
+                            <input type="radio" id="male" checked={employee.gender === 'male'} onChange={changeValue} name="gender" value="male" />
                             <label className="text" htmlFor="male">Male</label>
-                            <input type="radio" id="female" checked={user.gender === 'female'} onChange={changeValue} name="gender" value="female" />
+                            <input type="radio" id="female" checked={employee.gender === 'female'} onChange={changeValue} name="gender" value="female" />
                             <label className="text" htmlFor="female">Female</label>
                         </div>
-                        {/* <error className="error">{user.error.gender}</error> */}
+                        {/* <error className="error">{employee.error.gender}</error> */}
                     </div>
-                    <div className="row-content">
+                    < div className="row-content" >
                         <label className="label text" htmlFor="departments">Department</label>
-                        <div>
-                            {user.allDepartment.map(item => (
-                                <span key={item}>
-                                    <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item}
-                                        checked={getChecked(item)} value={item} />
-                                    <label className="text" htmlFor={item}>{item}</label>
-                                </span>
-                            ))}
 
-                        </div>
-                        {/* <error className="error">{user.error.department}</error> */}
+                        {employee.allDepartment.map(item => (
+                            <span key={item}>
+                                <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item} checked={getChecked(item)} value={item} />
+                                <label className="text" htmlFor={item}>{item}</label>
+                            </span>
+                        ))}
+
+
+                        {/* <error className="error">{employee.error.department}</error> */}
                     </div>
 
                     <div className="row-content">
                         <label className="label text" htmlFor="salary">Salary</label>
-                        <input className="input" type="text" id="salary" name="salary" value={user.salary} onChange={changeValue} />
-                        {/* <error className="error">{user.error.salary}</error> */}
+                        <input className="input" type="text" id="salary" name="salary" value={employee.salary} onChange={changeValue} />
+                        {/* <error className="error">{employee.error.salary}</error> */}
                     </div>
 
                     <div className="row-content">
                         <label className="label text" htmlFor="startDate">Start Date</label>
                         <div>
-                            <select value={user.day} onChange={changeValue} id="day" name="day">
+                            <select value={employee.day} onChange={changeValue} id="day" name="day">
                                 <option value="" disabled selected>Day</option>
                                 <option value="01">1</option>
                                 <option value="02">2</option>
@@ -182,7 +186,7 @@ const AddUser = () => {
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
-                            <select value={user.month} onChange={changeValue} id="month" name="month">
+                            <select value={employee.month} onChange={changeValue} id="month" name="month">
                                 <option value="" disabled selected>Month</option>
                                 <option value="Jan">January</option>
                                 <option value="Feb">Febuary</option>
@@ -197,7 +201,7 @@ const AddUser = () => {
                                 <option value="Nov">November</option>
                                 <option value="Dec">December</option>
                             </select>
-                            <select value={user.year} onChange={changeValue} id="year" name="year">
+                            <select value={employee.year} onChange={changeValue} id="year" name="year">
                                 <option value="" disabled selected>Year</option>
                                 <option value="2021">2021</option>
                                 <option value="2020">2020</option>
@@ -207,14 +211,14 @@ const AddUser = () => {
                                 <option value="2016">2016</option>
                             </select>
                         </div>
-                        <error className="error">{user.error.startDate}</error>
+                        <error className="error">{employee.error.startDate}</error>
                     </div>
 
                     <div className="row-content">
                         <label className="label text" htmlFor="notes">Notes</label>
-                        <textarea onChange={changeValue} id="notes" value={user.notes} className="input" name="notes" placeholder=""
+                        <textarea onChange={changeValue} id="notes" value={employee.notes} className="input" name="notes" placeholder=""
                             style={{ height: '120%' }}></textarea>
-                        {/* <error className="error">{user.error.notes}</error> */}
+                        {/* <error className="error">{employee.error.notes}</error> */}
                     </div>
 
                     <div className="buttonParent">
@@ -223,7 +227,7 @@ const AddUser = () => {
 
                         <div className="submit-reset">
 
-                            <button type="submit" className="button submitButton" id="submitButton">{user.isUpdate ? 'Update' : 'Submit'}</button>
+                            <button type="submit" className="button submitButton" id="submitButton">{employee.isUpdate ? 'Update' : 'Submit'}</button>
                         </div>
                     </div >
                 </form >
@@ -232,4 +236,4 @@ const AddUser = () => {
     );
 };
 
-export default AddUser;
+export default PayrollForm;
