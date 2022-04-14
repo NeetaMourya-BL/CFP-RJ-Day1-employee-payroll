@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import profile1 from '../../Assets/profile-images/Ellipse -1.png';
-import profile2 from '../../Assets/profile-images/Ellipse -3.png';
-import profile3 from '../../Assets/profile-images/Ellipse -7.png';
-import profile4 from '../../Assets/profile-images/Ellipse -8.png';
+import profile2 from '../../Assets/profile-images/Ellipse -2.png';
+import profile3 from '../../Assets/profile-images/Ellipse -3.png';
+import profile4 from '../../Assets/profile-images/Ellipse -4.png';
 import logo from '../../Assets/images/logo.png'
 import './PayrollForm.css';
 import axios from 'axios'
@@ -17,9 +17,9 @@ const EditUser = () => {
         name: '',
         profileArray: [
             { url: '../../Assets/profile-images/Ellipse -1.png' },
+            { url: '../../Assets/profile-images/Ellipse -2.png' },
             { url: '../../Assets/profile-images/Ellipse -3.png' },
-            { url: '../../Assets/profile-images/Ellipse -7.png' },
-            { url: '../../Assets/profile-images/Ellipse -8.png' }
+            { url: '../../Assets/profile-images/Ellipse -4.png' }
 
         ],
         allDepartment: [
@@ -47,13 +47,13 @@ const EditUser = () => {
     });
 
 
-    const onInputChange = async event => {
-        setUser({ ...employee, [event.target.name]: event.target.value });
-    };
+    // const onInputChange = async event => {
+    //     setUser({ ...employee, [event.target.name]: event.target.value });
+    // };
 
     const onSubmit = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:3001/employee${id}`, employee);
+        await axios.put(`http://localhost:3001/employee/${id}`, employee);
         history.push("/");
     };
     const changeValue = (event) => {
@@ -63,6 +63,10 @@ const EditUser = () => {
         const result = await axios.get(`http://localhost:3001/employee/${id}`);
         setUser(result.data);
     };
+
+    useEffect(() => {
+        loadUser();
+    }, []);
 
     const onCheckChange = (name) => {
         let index = employee.departMentValue.indexOf(name);
@@ -83,8 +87,10 @@ const EditUser = () => {
                 <div className="logo-content">
                     <img src={logo} alt="" />
                     <div>
-                        <span className="emp-text">EMPLOYEE</span> <br />
-                        <span className="emp-text emp-payroll">PAYROLL</span>
+                        <Link className="nav-link" exact to="/">
+                            <span className="emp-text">EMPLOYEE</span> <br />
+                            <span className="emp-text emp-payroll">PAYROLL</span>
+                        </Link>
                     </div>
                 </div>
             </header>
@@ -100,19 +106,19 @@ const EditUser = () => {
                         <label className="label text" htmlFor="profilePic">Profile image</label>
                         <div className="profile-radio-content">
                             <label >
-                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -1.png'} value="../../assets/profile-images/Ellipse -1.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -1.png'} value="../../Assets/profile-images/Ellipse -1.png" onChange={changeValue} />
                                 <img className="profile" src={profile1} alt="profile" />
                             </label>
                             <label >
-                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../assets/profile-images/Ellipse -3.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -2.png'} value="../../Assets/profile-images/Ellipse -2.png" onChange={changeValue} />
                                 <img className="profile" src={profile2} alt="profile" />
                             </label>
                             <label >
-                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -7.png'} value="../../assets/profile-images/Ellipse -7.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -3.png'} value="../../Assets/profile-images/Ellipse -3.png" onChange={changeValue} />
                                 <img className="profile" src={profile3} alt="profile" />
                             </label>
                             <label >
-                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -8.png'} value="../../assets/profile-images/Ellipse -8.png" onChange={changeValue} />
+                                <input type="radio" name="profilePic" checked={employee.profilePic === '../../Assets/profile-images/Ellipse -4.png'} value="../../Assets/profile-images/Ellipse -4.png" onChange={changeValue} />
                                 <img className="profile" src={profile4} alt="profile" />
                             </label>
 
@@ -131,13 +137,13 @@ const EditUser = () => {
                     </div>
                     < div className="row-content">
                         <label className="label text" htmlFor="departments">Department</label>
-                            {employee.allDepartment.map(item => (
-                                <span key={item}>
-                                    <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item}
-                                        checked={getChecked(item)} value={item} />
-                                    <label className="text" htmlFor={item}>{item}</label>
-                                </span>
-                            ))}
+                        {employee.allDepartment.map(item => (
+                            <span key={item}>
+                                <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item}
+                                    checked={getChecked(item)} value={item} />
+                                <label className="text" htmlFor={item}>{item}</label>
+                            </span>
+                        ))}
                         {/* <error className="error">{employee.error.department}</error> */}
                     </div>
 
@@ -223,7 +229,7 @@ const EditUser = () => {
 
                         <div className="submit-reset">
 
-                            <button type="submit" className="button submitButton" id="submitButton">{employee.isUpdate ? 'Update' : 'Submit'} Update</button>
+                            <button type="submit" className="button submitButton" id="submitButton">{employee.isUpdate ? 'Update' : 'Submit'} Update </button>
                         </div>
                     </div >
                 </form >

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react"
 import axios, { AxiosResponse, AxiosInstance } from 'axios';
 import { Link } from "react-router-dom";
-import profile1 from '../../Assets/profile-images/Ellipse -3.png';
-import profile2 from '../../Assets/profile-images/Ellipse -1.png';
-import profile3 from '../../Assets/profile-images/Ellipse -8.png';
-import profile4 from '../../Assets/profile-images/Ellipse -7.png';
+import profile1 from '../../Assets/profile-images/Ellipse -1.png';
+import profile2 from '../../Assets/profile-images/Ellipse -2.png';
+import profile3 from '../../Assets/profile-images/Ellipse -3.png';
+import profile4 from '../../Assets/profile-images/Ellipse -4.png';
 import deleteIcon from "../../Assets/icons/delete-black-18dp.svg";
 import editIcon from "../../Assets/icons/create-black-18dp.svg";
 import search from "../../Assets/icons/search.png"
@@ -16,7 +16,7 @@ const Home = () => {
   // let employeeList = JSON.parse(localStorage.getItem('EmployeeList'));
   // console.log(employeeList);
 
-  const [employees, setUser] = useState([]);
+  const [employee, setUser] = useState([]);
 
   useEffect(() => {
     loadUsers();
@@ -65,7 +65,7 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {employees.map((employee, index) => (
+            {employee.map((employee, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
                 <td><img className="profile"
@@ -74,10 +74,10 @@ const Home = () => {
                       "../../Assets/profile-images/Ellipse -1.png"
                       ? profile1
                       : employee.profilePic ===
-                        "../../Assets/profile-images/Ellipse -3.png"
+                        "../../Assets/profile-images/Ellipse -2.png"
                         ? profile2
                         : employee.profilePic ===
-                          "../../Assets/profile-images/Ellipse -7.png"
+                          "../../Assets/profile-images/Ellipse -3.png"
                           ? profile3
                           : profile4
                   }
@@ -92,9 +92,9 @@ const Home = () => {
                   </div>
                 ))}</td>
                 <td>{employee.salary}</td>
-                <td>{employee.day + '-' + employee.month + '-' + employee.year}</td>
+                <td>{employee.day+'-'+employee.month+'-'+employee.year}</td>
                 <td>
-                  <Link class="btn btn-primary mr-2" to={`/payroll-form/${employees.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/payroll-form/${employee.id}`}>
                     View
                   </Link>
 

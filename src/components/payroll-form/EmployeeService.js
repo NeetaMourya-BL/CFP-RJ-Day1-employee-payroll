@@ -7,9 +7,9 @@ const EmployeeService = () => {
     name: '',
     profileArray: [
       { url: '../../Assets/profile-images/Ellipse -1.png' },
+      { url: '../../Assets/profile-images/Ellipse -2.png' },
       { url: '../../Assets/profile-images/Ellipse -3.png' },
-      { url: '../../Assets/profile-images/Ellipse -7.png' },
-      { url: '../../Assets/profile-images/Ellipse -8.png' }
+      { url: '../../Assets/profile-images/Ellipse -4.png' }
 
     ],
     allDepartment: [
@@ -51,12 +51,13 @@ const EmployeeService = () => {
       <h1 className="display-4">User Id: {id}</h1>
       <hr />
       <ul className="list-group w-50">
-        <li className="list-group-item">profileimage: {employee.profilePic}</li>
-        <li className="list-group-item"> name: {employee.name}</li>
-        <li className="list-group-item">gender: {employee.gender}</li>
-        <li className="list-group-item">department: {employee.department}</li>
-        <li className="list-group-item">salary: {employee.salary}</li>
-        <li className="list-group-item">startDate: {employee.day+'-'+employee.month+'-'+employee.year}</li>
+        <li className="list-group-item">Profile Image: {employee.profilePic}</li>
+        <li className="list-group-item">Name: {employee.name}</li>
+        <li className="list-group-item">Gender: {employee.gender}</li>
+        <li className="list-group-item">Department: {employee.departMentValue}</li>
+        <li className="list-group-item">Salary: {employee.salary}</li>
+        <li className="list-group-item">Start Date: {employee.day+'-'+employee.month+'-'+employee.year}</li>
+        <li className="list-group-item">Notes: {employee.notes}</li>
       </ul>
     </div>
   );
