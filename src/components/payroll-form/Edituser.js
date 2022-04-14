@@ -58,7 +58,6 @@ const EditUser = () => {
     };
     const changeValue = (event) => {
         setUser({ ...employee, [event.target.name]: event.target.value })
-        console.log(event.target.value)
     }
     const loadUser = async () => {
         const result = await axios.get(`http://localhost:3001/employee/${id}`);
@@ -224,7 +223,7 @@ const EditUser = () => {
 
                         <div className="submit-reset">
 
-                            <button type="submit" className="button submitButton" id="submitButton">{employee.isUpdate ? 'Update' : 'Submit'} Update User</button>
+                            <button type="submit" className="button submitButton" id="submitButton">{employee.isUpdate ? 'Update' : 'Submit'} Update</button>
                         </div>
                     </div >
                 </form >

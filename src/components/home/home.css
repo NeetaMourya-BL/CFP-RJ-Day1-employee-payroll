@@ -16,7 +16,6 @@ body {
     padding: 0;
 }
 
-
 .header {
     padding: 15px 0;
     background-color: #ffffff;
@@ -65,14 +64,13 @@ body {
     justify-content: space-between;
 }
 
-
 .text-content {
     color: white;
 }
 
 .search {
-height: 2pc;
-width: 2pc ;
+    height: 2pc;
+    width: 2pc;
 }
 
 .add-button {

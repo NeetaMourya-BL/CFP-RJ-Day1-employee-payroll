@@ -92,7 +92,7 @@ const Home = () => {
                   </div>
                 ))}</td>
                 <td>{employee.salary}</td>
-                <td>{employee.startDate}</td>
+                <td>{employee.day + '-' + employee.month + '-' + employee.year}</td>
                 <td>
                   <Link class="btn btn-primary mr-2" to={`/payroll-form/${employees.id}`}>
                     View

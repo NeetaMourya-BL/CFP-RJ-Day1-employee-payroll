@@ -50,14 +50,12 @@ const PayrollForm = () => {
     };
 
     const onSubmit = async event => {
-        console.log(employee);
         event.preventDefault();
         await axios.post("http://localhost:3001/employee", employee);
         history.push("/");
     };
     const changeValue = (event) => {
         setUser({ ...employee, [event.target.name]: event.target.value })
-        console.log(event.target.value)
     }
 
     const onCheckChange = (name) => {
@@ -80,13 +78,15 @@ const PayrollForm = () => {
                 <div className="logo-content">
                     <img src={logo} alt="" />
                     <div>
-                        <span className="emp-text">EMPLOYEE</span> <br />
-                        <span className="emp-text emp-payroll">PAYROLL</span>
+                        <Link className="nav-link" exact to="/">
+                            <span className="emp-text">EMPLOYEE</span> <br />
+                            <span className="emp-text emp-payroll">PAYROLL</span>
+                        </Link>
+
                     </div>
+
                 </div>
-                <Link className="nav-link" exact to="/">
-                    Dashboard
-                </Link>
+
             </header>
             <div className="form-content">
                 <form className="form-head" action="#" onSubmit={onSubmit}>

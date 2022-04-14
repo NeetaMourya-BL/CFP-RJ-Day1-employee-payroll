@@ -51,12 +51,12 @@ const EmployeeService = () => {
       <h1 className="display-4">User Id: {id}</h1>
       <hr />
       <ul className="list-group w-50">
-        <li className="list-group-item">profileimage: {employee.profileimage}</li>
+        <li className="list-group-item">profileimage: {employee.profilePic}</li>
         <li className="list-group-item"> name: {employee.name}</li>
         <li className="list-group-item">gender: {employee.gender}</li>
         <li className="list-group-item">department: {employee.department}</li>
         <li className="list-group-item">salary: {employee.salary}</li>
-        <li className="list-group-item">startDate: {employee.startDate}</li>
+        <li className="list-group-item">startDate: {employee.day+'-'+employee.month+'-'+employee.year}</li>
       </ul>
     </div>
   );
