@@ -229,7 +229,7 @@ const EditUser = () => {
 
                         <div className="submit-reset">
 
-                            <button type="submit" className="button submitButton" id="submitButton">{employee.isUpdate ? 'Update' : 'Submit'} Update </button>
+                            <button type="submit" className="button submitButton" id="submitButton">{employee.isUpdate ? 'Update' : 'Submit'} </button>
                         </div>
                     </div >
                 </form >

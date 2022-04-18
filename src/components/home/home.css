@@ -7,14 +7,6 @@ body {
     height: 100%;
 }
 
-.payroll-main {
-    height: 100%;
-    min-height: calc(100% - 80px);
-    background-color: #f7f7f7;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-}
 
 .header {
     padding: 15px 0;
@@ -48,6 +40,7 @@ body {
     color: #82A70C;
     padding-left: 10px;
     text-transform: capitalize;
+    float: left;
 }
 
 .emp-payroll {
@@ -61,7 +54,6 @@ body {
     align-items: center;
     border: 0px solid green;
     margin-top: 2pc;
-    justify-content: space-between;
 }
 
 .text-content {
@@ -71,6 +63,7 @@ body {
 .search {
     height: 2pc;
     width: 2pc;
+    float: left;
 }
 
 .add-button {

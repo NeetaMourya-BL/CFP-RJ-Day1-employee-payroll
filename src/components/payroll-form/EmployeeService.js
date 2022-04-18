@@ -50,7 +50,7 @@ const EmployeeService = () => {
       </Link>
       <h1 className="display-4">User Id: {id}</h1>
       <hr />
-      <ul className="list-group w-50">
+      <ul className="list-group ">
         <li className="list-group-item">Profile Image: {employee.profilePic}</li>
         <li className="list-group-item">Name: {employee.name}</li>
         <li className="list-group-item">Gender: {employee.gender}</li>

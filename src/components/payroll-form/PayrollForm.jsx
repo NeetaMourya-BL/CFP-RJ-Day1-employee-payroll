@@ -76,7 +76,6 @@ const PayrollForm = () => {
     return (
         <div className="payroll-main">
             <header className='header-content header'>
-
                 <div className="logo-content">
                     <img src={logo} alt="" />
                     <div>
@@ -84,11 +83,8 @@ const PayrollForm = () => {
                             <span className="emp-text">EMPLOYEE</span> <br />
                             <span className="emp-text emp-payroll">PAYROLL</span>
                         </Link>
-
                     </div>
-
                 </div>
-
             </header>
             <div className="form-content">
                 <form className="form-head" action="#" onSubmit={onSubmit}>
@@ -134,14 +130,13 @@ const PayrollForm = () => {
                     </div>
                     < div className="row-content" >
                         <label className="label text" htmlFor="departments">Department</label>
-
-                        {employee.allDepartment.map(item => (
-                            <span key={item}>
-                                <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item} checked={getChecked(item)} value={item} />
-                                <label className="text" htmlFor={item}>{item}</label>
-                            </span>
-                        ))}
-
+                        {
+                            employee.allDepartment.map(item => (
+                                <span key={item}>
+                                    <input className="checkbox" type="checkbox" onChange={() => onCheckChange(item)} name={item} checked={getChecked(item)} value={item} />
+                                    <label className="text" htmlFor={item}>{item}</label>
+                                </span>
+                            ))}
 
                         {/* <error className="error">{employee.error.department}</error> */}
                     </div>
@@ -151,6 +146,8 @@ const PayrollForm = () => {
                         <input className="input" type="text" id="salary" name="salary" value={employee.salary} onChange={changeValue} />
                         {/* <error className="error">{employee.error.salary}</error> */}
                     </div>
+
+
 
                     <div className="row-content">
                         <label className="label text" htmlFor="startDate">Start Date</label>
