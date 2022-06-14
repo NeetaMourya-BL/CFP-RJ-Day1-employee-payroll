@@ -63,7 +63,17 @@ body {
 .search {
     height: 2pc;
     width: 2pc;
-    float: left;
+    margin-left: 1px;
+}
+
+.emp-details{
+    font: normal normal bold 20px/20px Montserrat;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0px;
+    color: black;
+    padding-left: 10px;
+    text-transform: capitalize;
+    margin-right:960px;
 }
 
 .add-button {
@@ -78,6 +88,7 @@ body {
     outline: none;
     cursor: pointer;
     text-decoration: none;
+    margin-left: 10px;
 }
 
 .table-main {

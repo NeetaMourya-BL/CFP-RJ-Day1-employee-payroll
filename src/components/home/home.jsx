@@ -44,9 +44,15 @@ const Home = () => {
         </div>
       </header>
       <div className="form-content">
-        <span className="emp-text emp-payroll">Employee Details</span>
+        <div>
+        <span className="emp-details">Employee Details</span>
+        </div>
+        <div>
         <img className="search" src={search} alt="search" />
+        </div>
+        <div>
         <Link className="add-button" to="/payroll-form/add">+Add User</Link>
+        </div>
       </div>
       <div>
         <table class="table border shadow">
