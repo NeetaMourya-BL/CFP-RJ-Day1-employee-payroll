@@ -47,6 +47,7 @@ const Home = () => {
         <div>
         <span className="emp-details">Employee Details</span>
         </div>
+        <div className="employee-count">{employee.length}</div>
         <div>
         <img className="search" src={search} alt="search" />
         </div>

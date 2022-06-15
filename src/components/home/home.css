@@ -73,7 +73,18 @@ body {
     color: black;
     padding-left: 10px;
     text-transform: capitalize;
-    margin-right:960px;
+    margin-right:20px;
+}
+
+.employee-count{
+    background-color: #82A70C;
+    color: #ffff;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 800px;
 }
 
 .add-button {

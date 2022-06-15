@@ -3,7 +3,6 @@ import axios from "axios";
 class EmployeePayrollService {
     baseUrl = "http://localhost:8080/employeepayrollservice"
 
-
 addEmployee(data) {
     return axios.post('${this.baseUrl}/create',data);
 }

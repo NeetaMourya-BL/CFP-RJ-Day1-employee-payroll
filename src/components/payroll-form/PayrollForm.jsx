@@ -53,6 +53,7 @@ const PayrollForm = () => {
     const onSubmit = async event => {
         event.preventDefault();
         await axios.post("http://localhost:3001/employee", employee);
+        
         history.push("/");
     };
     const changeValue = (event) => {
